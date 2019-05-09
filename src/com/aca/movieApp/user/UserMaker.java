@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class UserMaker {
     private static Scanner in = new Scanner(System.in);
-    private List<User> users = new ArrayList<>();
 
     public void printUsers(List<User> users) {
         for (User user : users) {
@@ -15,32 +14,34 @@ public class UserMaker {
     }
 
     public List<User> getRegisteredUsers() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println("print username");
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            System.out.println("input username");
             String userName = in.nextLine();
-            System.out.println("print password");
+            System.out.println("input password");
             String password = in.nextLine();
-            registerUser(new User(userName, password));
+            if (users.isEmpty()) {
+                users.add(new User(userName, password));
+                continue;
+            }
+            User new_user = new User(userName, password);
+            for (int j = 0; j < users.size(); j++) {
+                if (new_user.getUserName().equals(users.get(j).getUserName())) {
+                    System.out.println("the username is busy");
+                    break;
+                } else if (j == users.size() - 1) {
+                    users.add(new_user);
+                    break;
+                }
+                else
+                    continue;
+            }
         }
         return users;
     }
 
-    public User registerUser(User user) {
-        if (users.size() > 0) {
-            for (User user1 : users) {
-                if (!user.getUserName().equals(user1.getUserName()))
-                    users.add(user);
-                else
-                    System.out.println("the username is busy");
-            }
-        } else
-            users.add(user);
-
-        return user;
-    }
-
-
     public void loginUser(User user) {
+        List<User> users = new ArrayList<>();
         for (User user1 : users) {
             if (user.getUserName().equals(user1.getUserName())) {
                 System.out.println("the user has logged in ");
@@ -49,7 +50,6 @@ public class UserMaker {
         }
         System.out.println("wrong userName");
     }
-
 
 
 }

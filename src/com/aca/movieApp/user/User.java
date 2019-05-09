@@ -39,4 +39,5 @@ public class User {
         movie.setNumber_of_users_rated(numberOfUsers);
     }
 
+
 }

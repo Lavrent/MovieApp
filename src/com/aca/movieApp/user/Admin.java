@@ -28,5 +28,10 @@ public class Admin extends User {
     public void addPremierDate(Movie movie, String date){
         movie.setPremierDate(date);
     }
-//addContent
+
+    @Override
+    public String toString() {
+
+        return "the admin is " + this.getUserName();
+    }
 }

@@ -11,15 +11,16 @@ import java.util.List;
 import java.util.Random;
 
 public class MovieApp {
-
-    public static void main(String[] args) {
+    public static void runProgram() {
         UserMaker userMaker = new UserMaker();
         List<User> reg_users = userMaker.getRegisteredUsers();
         userMaker.printUsers(reg_users);
-        User admin = new Admin("aaa", "bbb");
-        admin = reg_users.get(new Random().nextInt(reg_users.size()));
-
+        User user = reg_users.get(new Random().nextInt(reg_users.size()));
+        Admin admin = new Admin(user.getUserName(), user.getPassword());
+        System.out.println(admin.toString());
         MovieMaker movieMaker = new MovieMaker();
-        movieMaker.searchByTitle("aaa");
+        List<Movie> movies = movieMaker.createMovies();
+        System.out.println(movies);
+        movieMaker.searchByTitle("Avatar", movies);
     }
 }
