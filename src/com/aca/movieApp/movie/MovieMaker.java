@@ -18,14 +18,13 @@ public class MovieMaker {
         personList.add(new Actor("Jackie Chan", "actor"));
         personList.add(new Director("cameron", "director"));
         personList.add(new Writer("Steven King", "writer"));
-        Movie movie = new Movie("Avengers", "film with high quality spec effects", 8.0, LocalDate.of(2019, Month.APRIL, 20),
+        Movie movie = new Movie("Avengers", "film with high quality spec effects", 8.0, LocalDate.of(2019, Month.APRIL, 28),
                 Genre.Fantasy, personList);
         movies.add(movie);
         return movies;
     }
 
     public void searchByTitle(String title, List<Movie> movies) {
-        movies = createMovies();
         for (Movie movie : movies) {
             if (title.equals(movie.getTitle()))
                 System.out.println(movie.toString());
@@ -35,7 +34,6 @@ public class MovieMaker {
     }
 
     public void searchByDate(LocalDate fromDate, LocalDate toDate, List<Movie> movies) {
-        movies = createMovies();
 
         List<Movie> resultedMovies = new ArrayList<>();
         for (Movie movie : movies) {
@@ -45,10 +43,10 @@ public class MovieMaker {
                 resultedMovies.add(movie);
         }
         if (resultedMovies.size() > 0) {
-            System.out.println("here are the movies in from date " + fromDate + "to date " + toDate);
+            System.out.println("here are the movies released from date " + fromDate + " to date " + toDate);
             for (Movie movie: resultedMovies)
                 System.out.println(movie);
         }else
-            System.out.println("there are no movies matching specified filter");
+            System.out.println("there are no movies matching specified date filter");
     }
 }

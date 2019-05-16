@@ -6,6 +6,8 @@ import com.aca.movieApp.user.Admin;
 import com.aca.movieApp.user.User;
 import com.aca.movieApp.user.UserMaker;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,7 +22,8 @@ public class MovieApp {
         System.out.println(admin.toString());
         MovieMaker movieMaker = new MovieMaker();
         List<Movie> movies = movieMaker.createMovies();
-        System.out.println(movies);
-        movieMaker.searchByTitle("Avatar", movies);
+        movieMaker.searchByTitle("Avengers", movies);
+        System.out.println();
+        movieMaker.searchByDate(LocalDate.of(2019, Month.APRIL, 10), LocalDate.now(), movies);
     }
 }
