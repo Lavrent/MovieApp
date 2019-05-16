@@ -1,33 +1,48 @@
 package com.aca.movieApp.movie;
 
-import java.time.LocalDate;
+import com.aca.movieApp.movie.movieworkers.MovieRelatedPerson;
+
+import java.util.List;
 
 public class Movie {
     private String title;
     private String description;
     private double average_rating;
     private String premierDate;
-    private String genre;
-    private String actor;
-    private String director;
-    private String writer;
+    private Genre genre;
+    private List<MovieRelatedPerson> artists;
     private int number_of_users_rated;
+
+    public Movie(String title, String description, double average_rating, String premierDate,
+                 Genre genre, List<MovieRelatedPerson> artists) {
+        this.title = title;
+        this.description = description;
+        this.average_rating = average_rating;
+        this.premierDate = premierDate;
+        this.genre = genre;
+        this.artists = artists;
+    }
+
 
 
     public String getTitle() {
         return title;
     }
 
-    public Movie(String title, String description, double average_rating, String premierDate,
-                 String genre, String actor, String director, String writer) {
-        this.title = title;
-        this.description = description;
-        this.average_rating = average_rating;
-        this.premierDate = premierDate;
-        this.genre = genre;
-        this.actor = actor;
-        this.director = director;
-        this.writer = writer;
+    public double getAverage_rating() {
+        return average_rating;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public List<MovieRelatedPerson> getArtists() {
+        return artists;
+    }
+
+    public int getNumber_of_users_rated() {
+        return number_of_users_rated;
     }
 
     public void setTitle(String title) {
@@ -50,20 +65,12 @@ public class Movie {
         this.premierDate = premierDate;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
-    public void setActor(String actor) {
-        this.actor = actor;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
+    public void setArtists(List<MovieRelatedPerson> artists) {
+        this.artists = artists;
     }
 
     public String getDescription() {
@@ -78,21 +85,6 @@ public class Movie {
         return premierDate;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public String getActor() {
-        return actor;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public String getWriter() {
-        return writer;
-    }
 
     public int getNumberOfUsersRated() {
         return number_of_users_rated;
@@ -105,8 +97,6 @@ public class Movie {
                 "\naverage_rating - " + average_rating +
                 "\npremierDate - " + premierDate +
                 "\ngenre - " + genre +
-                "\nactor - " + actor +
-                "\ndirector - " + director +
-                "\nwriter - " + writer;
+                "\nartists - " + artists;
     }
 }
