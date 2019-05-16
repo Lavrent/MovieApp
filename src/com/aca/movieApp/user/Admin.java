@@ -4,6 +4,7 @@ import com.aca.movieApp.movie.Genre;
 import com.aca.movieApp.movie.Movie;
 import com.aca.movieApp.movie.movieworkers.MovieRelatedPerson;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Admin extends User {
@@ -26,7 +27,7 @@ public class Admin extends User {
         movie.setDescription(desc);
     }
 
-    public void addPremierDate(Movie movie, String date) {
+    public void addPremierDate(Movie movie, LocalDate date) {
         movie.setPremierDate(date);
     }
 

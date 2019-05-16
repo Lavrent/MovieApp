@@ -2,18 +2,19 @@ package com.aca.movieApp.movie;
 
 import com.aca.movieApp.movie.movieworkers.MovieRelatedPerson;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Movie {
     private String title;
     private String description;
     private double average_rating;
-    private String premierDate;
+    private LocalDate premierDate;
     private Genre genre;
     private List<MovieRelatedPerson> artists;
     private int number_of_users_rated;
 
-    public Movie(String title, String description, double average_rating, String premierDate,
+    public Movie(String title, String description, double average_rating, LocalDate premierDate,
                  Genre genre, List<MovieRelatedPerson> artists) {
         this.title = title;
         this.description = description;
@@ -61,7 +62,7 @@ public class Movie {
         this.description = description;
     }
 
-    public void setPremierDate(String premierDate) {
+    public void setPremierDate(LocalDate premierDate) {
         this.premierDate = premierDate;
     }
 
@@ -81,7 +82,7 @@ public class Movie {
         return average_rating;
     }
 
-    public String getPremierDate() {
+    public LocalDate getPremierDate() {
         return premierDate;
     }
 
